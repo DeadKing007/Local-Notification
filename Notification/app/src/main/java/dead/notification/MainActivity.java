@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {    //Using Float button to cancel notification manually
                NotificationManager manager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                manager.cancel(REQuest_code);
             }
@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher));
 
+        builder.setAutoCancel(true);//Automaticlly gets cancelled on click
 
         NotificationManager manager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.notify(REQuest_code,builder.build());
